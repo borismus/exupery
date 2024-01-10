@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Exupery</title>
+  <meta name="author" content="Boris Smus">
+  <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<style>
+html, body, #container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wrap {
+  flex: 1;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+canvas#display {
+  display: none;
+}
+h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 52px;
+  margin: 0;
+  display: none;
+}
+footer {
+  font-size: 20px;
+  color: #ddd;
+  position: fixed;
+  bottom: 0;
+}
+#begin {
+  display: block;
+  margin-top: 10px;
+}
+#controls {
+  display: none;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  background: #eee;
+}
+#pencil {
+  animation: fadeout 10s;
+  opacity: 0;
+}
+#pencil.drawing {
+  position: absolute;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+#microphone {
+  transition: opacity 0.5s ease-in-out;
+  height: 192px;
+  display: none;
+}
+#microphone canvas {
+  position: absolute;
+  margin-left: -96px;
+  left: 50%;
+}
+
+#microphone.listening {
+  opacity: 1;
+  display: block;
+}
+#microphone.busy {
+  opacity: 0;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+  <div id="controls">
+  </div>
+  <div id="container">
+    <div id="wrap">
+      <canvas id="pencil" width="64" height="64"></canvas>
+      <canvas id="display" width="640" height="640"></canvas>
+      <div id="microphone">
+        <canvas class="mic-body" width="192" height="192"></canvas>
+        <canvas class="mic-level" width="192" height="192"></canvas>
+      </div>
+
+      <div id="begin">
+        <button class="mdl-button mdl-js-button mdl-button--raised
+          mdl-js-ripple-effect mdl-button--accent" style="visibility: hidden;">
+          Begin
+        </button>
+      </div>
+    </div>
+    <footer>state: <span id="status-code"></span></footer>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
+
