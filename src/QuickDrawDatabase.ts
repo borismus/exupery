@@ -1,6 +1,6 @@
 import {fetchJson, randomChoice} from './Utils';
 
-const QUICKDRAW_ROOT = '/sketches';
+const QUICKDRAW_ROOT = 'sketches';
 // If words start with this, don't add an article.
 const NO_ARTICLE_PREFIXES = ['The', 'animal migration']
 // If words end with this, add an article, even though they end in 's'.
