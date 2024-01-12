@@ -1,5 +1,7 @@
 module.exports = {
+  base: '/exupery',
   build: {
-    outDir: './docs'
+    outDir: './docs',
+    sourcemap: false,
   }
 }
