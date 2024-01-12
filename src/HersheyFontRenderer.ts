@@ -31,7 +31,7 @@ export default class HersheyFontRenderer extends EventEmitter {
     this.fontName = options.fontName;
 
     // Load all of the fonts.
-    fetchJson('assets/hersheytext.json').then((json: Array<Object>) => {
+    fetchJson('/hersheytext.json').then((json: Array<Object>) => {
       console.log('Loaded fonts.', json);
       this.fonts = json;
 

@@ -47,7 +47,7 @@ def WriteFile(path, data):
 def main():
   RunCommand('mkdir -p data')
   labels = GetLabels()
-  labels_path = 'data/labels.json'
+  labels_path = 'public/labels.json'
   WriteFile(labels_path, json.dumps(labels))
   for label in labels:
     try:

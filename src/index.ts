@@ -37,7 +37,7 @@ let tracker = new DoodleTracker();
 function init() {
   sm.setState('inactive');
 
-  db = new QuickDrawDatabase('data/labels.json');
+  db = new QuickDrawDatabase('/labels.json');
   db.load().then(e => {
     console.log('Loaded labels.');
     reco.setLabels(db.getLabels());
